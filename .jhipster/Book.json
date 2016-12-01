@@ -1,0 +1,46 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "title",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "author",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "numberOfBooks",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "availability",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "issuedDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "returningDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "stackNumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "departmentType",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20161201055948",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "book",
+    "pagination": "no"
+}

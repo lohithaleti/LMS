@@ -1,0 +1,51 @@
+
+<div>
+    <h2><span>Book</span> {{vm.book.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Title</span></dt>
+        <dd>
+            <span>{{vm.book.title}}</span>
+        </dd>
+        <dt><span>Author</span></dt>
+        <dd>
+            <span>{{vm.book.author}}</span>
+        </dd>
+        <dt><span>Number Of Books</span></dt>
+        <dd>
+            <span>{{vm.book.numberOfBooks}}</span>
+        </dd>
+        <dt><span>Availability</span></dt>
+        <dd>
+            <span>{{vm.book.availability}}</span>
+        </dd>
+        <dt><span>Issued Date</span></dt>
+        <dd>
+            <span>{{vm.book.issuedDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>Returning Date</span></dt>
+        <dd>
+            <span>{{vm.book.returningDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>Stack Number</span></dt>
+        <dd>
+            <span>{{vm.book.stackNumber}}</span>
+        </dd>
+        <dt><span>Department Type</span></dt>
+        <dd>
+            <span>{{vm.book.departmentType}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="book-detail.edit({id:vm.book.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>
