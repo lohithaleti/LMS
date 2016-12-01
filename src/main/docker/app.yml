@@ -1,0 +1,30 @@
+version: '2'
+services:
+    library-app:
+        image: library
+        external_links:
+            - library-cassandra:cassandra
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATA_CASSANDRA_CONTACTPOINTS=cassandra
+            - JHIPSTER_SLEEP=30 # gives time for the cassandra cluster to start and execute the migration scripts
+        ports:
+            - 8080:8080
+    library-cassandra:
+        extends:
+            file: cassandra-cluster.yml
+            service: library-cassandra
+    library-cassandra-node:
+        image: cassandra:2.2.7
+        links:
+            - library-cassandra:seed
+        environment:
+            - CASSANDRA_SEEDS=seed
+    library-cassandra-migration:
+        extends:
+            file: cassandra-migration.yml
+            service: library-cassandra-migration
+        links:
+            - library-cassandra
+        environment:
+            - CREATE_KEYSPACE_SCRIPT=create-keyspace-prod.cql
